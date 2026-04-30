@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Bounce, ToastContainer } from "react-toastify";
 
 type MessagesContainerProps = {
@@ -5,6 +6,21 @@ type MessagesContainerProps = {
 };
 
 export function MessagesContainer({ children }: MessagesContainerProps) {
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    return localStorage.getItem("theme") === "light" ? "light" : "dark";
+  });
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      setTheme(currentTheme === "light" ? "light" : "dark");
+    });
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
       {children}
@@ -18,7 +34,7 @@ export function MessagesContainer({ children }: MessagesContainerProps) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="light"
+        theme={theme}
         transition={Bounce}
       />
     </>
