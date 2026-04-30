@@ -18,16 +18,15 @@
     width: 100%;
     min-width: 64rem;
     font-size: 1.6rem;
-    border-collapse: collapse ;
+    border-collapse: collapse;
 }
 
 .responsiveTable th{
     background-color: var(--gray-600);
-
 }
+
 .responsiveTable td{
     background-color: var(--gray-800);
-
 }
 
 .responsiveTable th,
@@ -35,4 +34,37 @@
     border-bottom: 0.2rem solid var(--gray-700);
     text-align: left;
     padding: 1.6rem;
+}
+
+.noTasksWarning {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.4rem 1.6rem;
+    background: var(--gray-800);
+    border: 0.05rem solid var(--gray-700);
+    border-left: 0.3rem solid var(--primary);
+    border-radius: 0.8rem;
+}
+
+.noTasksWarning svg {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.noTasksWarning p {
+    margin: 0;
+}
+
+.noTasksWarning .warningTitle {
+    margin-bottom: 0.2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-default);
+}
+
+.noTasksWarning .warningDescription {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    line-height: 1.5;
 }
