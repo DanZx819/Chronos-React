@@ -1,0 +1,104 @@
+/*
+🎨 Estrutura de cores do projeto
+
+🔹 Cores Dinâmicas (mudam entre os temas claro/escuro)
+   - Essas cores se adaptam ao tema escolhido pelo usuário.
+   - Exemplo: `gray-900` será escuro no modo dark e claro no modo light.
+
+🔸 Cores Fixas (não mudam entre os temas)
+   - São usadas para botões, alertas e destaques.
+   - Exemplo: `primary`, `success`, `error` sempre terão os mesmos tons.
+
+📝 Estrutura:
+   - Fundo geral: `gray-900` (dinâmico)
+   - Cards/caixas: `gray-800` (dinâmico)
+   - Bordas/separadores: `gray-700` ou `gray-600` (dinâmico)
+   - Texto principal: `--text-default` (dinâmico)
+   - Texto secundário/placeholders: `--text-muted` (dinâmico)
+   - Hover/ativo: `gray-700` e `gray-600` ou conforme preferir (dinâmico)
+
+🚨 Atenção aos comentários! Eles descrevem cada categoria de cores e sua função.
+*/
+
+:root {
+  /* 🎭 Tons de Cinza */
+  --gray-100: #e6e9f0;
+  --gray-200: #cdd3e1;
+  --gray-300: #aab3cc;
+  --gray-400: #555f7d;
+  --gray-500: #454f6a;
+  --gray-600: #363d56;
+  --gray-700: #272f43;
+  --gray-800: #181f2e;
+  --gray-900: #0a0f1a;
+
+  /* 🌿 Cores Primárias */
+  --primary-light: #4de7b7;
+  --primary: #0da170;
+  --primary-dark: #065f46;
+
+  /* 🔗 Links */
+  --link-color: #10b981;
+  --link-hover: #0b8a60;
+
+  /* 🚦 Alertas */
+  --success: #22c55e;
+  --warning: #eab308;
+  --error: #991b1b;
+  --info: #0ea5e9;
+
+  /* 🎨 Texto sobre fundos coloridos */
+  --text-over-primary: #0a0f1a;
+  --text-over-primary-dark: #e6e9f0;
+  --text-over-primary-light: #0a0f1a;
+  --text-over-success: #0a0f1a;
+  --text-over-warning: #0a0f1a;
+  --text-over-error: #e6e9f0;
+  --text-over-info: #0a0f1a;
+
+  /* 📝 Texto */
+  --text-default: #e6e9f0;
+  --text-muted: #aab3cc;
+
+  /* 🚫 Desativados */
+  --disabled: #555f7d;
+  --text-disabled: #aab3cc;
+
+  /* 🔔 Toastify */
+  --toastify-color-light: var(--text-default);
+  --toastify-color-dark: var(--text-default);
+  --toastify-color-info: var(--info);
+  --toastify-color-success: var(--success);
+  --toastify-color-warning: var(--warning);
+  --toastify-color-error: var(--error);
+  --toastify-text-color-light: #0a0f1a;
+  --toastify-text-color-dark: #e6e9f0;
+  --toastify-color-progress-light: var(--primary);
+  --toastify-color-progress-dark: var(--primary);
+}
+
+/* 🌞 Modo Claro */
+:root[data-theme='light'] {
+  /* 🎭 Tons de Cinza Invertidos */
+  --gray-100: #0a0f1a;
+  --gray-200: #181f2e;
+  --gray-300: #272f43;
+  --gray-400: #363d56;
+  --gray-500: #454f6a;
+  --gray-600: #555f7d;
+  --gray-700: #aab3cc;
+  --gray-800: #cdd3e1;
+  --gray-900: #e6e9f0;
+
+  /* 📝 Texto */
+  --text-default: #0a0f1a;
+  --text-muted: #272f43;
+
+  /* 🔗 Links */
+  --link-color: #0b8a60;
+  --link-hover: #065f46;
+
+  /* 🔔 Toastify */
+  --toastify-text-color-light: #e6e9f0;
+  --toastify-text-color-dark: #e6e9f0;
+}
