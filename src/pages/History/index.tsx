@@ -10,13 +10,20 @@ import styles from "./styles.module.css";
 import { useTaskContext } from "../../contexts/TaskContext/useTaskContext";
 import { formatDate } from "../../utils/formatDate";
 import { getTaskStatus } from "../../utils/getTaskStatus";
+import { TaskActionTypes } from "../../contexts/TaskContext/taskActions";
 
 export function Hystory() {
 
-  const {state} = useTaskContext();
+  const {state, dispatch} = useTaskContext();
 
-  function handleDelete(){
-    alert('Você tem certeza que deseja deletar o histórico ?');
+  const sortedTasks = [...state.tasks].sort((a, b) =>{
+    return b.startDate - a.startDate;
+  });
+
+  function handleResetHystory(){
+    if(!confirm('Tem certeza ?')) return;
+
+    dispatch({ type: TaskActionTypes.RESET_STATE});
   }
   return (
     <MainTemplate>
@@ -29,7 +36,7 @@ export function Hystory() {
               color="red"
               aria-label="Apagar todo o histórico"
               title="Apagar Histórico"
-              onClick={handleDelete}
+              onClick={handleResetHystory}
             />
           </span>
         </Heading>
@@ -48,7 +55,7 @@ export function Hystory() {
               </tr>
             </thead>
             <tbody>
-              {state.tasks.map((task) => {
+              {sortedTasks.map((task) => {
 
                 const taskTypeDictionary = {
                   workTime: 'Foco',
