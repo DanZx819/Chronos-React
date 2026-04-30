@@ -14,9 +14,10 @@ import { showMessage } from "../../adapters/showMessage";
 
 export function MainForm() {
   const { state, dispatch } = useTaskContext();
-  const [taskName, setTaskName] = useState("");
 
   const lastTaskName = state.tasks[state.tasks.length - 1]?.name || '';
+  
+  const [taskName, setTaskName] = useState(lastTaskName);
 
   const nextCycle = getNextCycle(state.currentCycle);
 
